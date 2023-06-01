@@ -49,7 +49,7 @@ void display() {
             ///glRotatef(angle, 0, 1, 0);
             glmDraw(body, GLM_MATERIAL|GLM_TEXTURE);///glmDraw(gundam, GLM_MATERIAL|GLM_TEXTURE);
 
-            glPushMatrix();///екдт
+            glPushMatrix();///дт
                 glTranslatef(-4.07, +21.33, 0 );
                 ///glRotatef(angle, 0, 1, 0);
                 ///glRotatef(angle2, 1, 0, 0);
@@ -65,22 +65,6 @@ void display() {
                 glPopMatrix();
             glPopMatrix();
 
-
-            glPushMatrix();///еkдт
-                glTranslatef(+4.07, +21.33, 0 );
-                ///glRotatef(angle, 0, 1, 0);
-                ///glRotatef(angle2, 1, 0, 0);
-                glTranslatef(-4.07, -21.33, 0 );///glTranslatef(teapotX, teapotY, 0);
-                glmDraw(arm2, GLM_MATERIAL|GLM_TEXTURE);
-
-                glPushMatrix();
-                    glTranslatef(+4.40, +18.53, 0 );
-                    glRotatef(angle, 0, 1, 0);
-                    glRotatef(angle2, 1, 0, 0);
-                    glTranslatef(-4.40, -18.53, 0 );///glTranslatef(teapotX, teapotY, 0);
-                    glmDraw(hand2, GLM_MATERIAL|GLM_TEXTURE);
-                glPopMatrix();
-            glPopMatrix();
             glPushMatrix();
                 glTranslatef(-0.00, +22.53, 0 );
                 ///glRotatef(angle, 0, 1, 0);
