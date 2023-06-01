@@ -16,7 +16,6 @@ float teapotX = 0, teapotY = 0, oldX = 0, oldY = 0;
 float angle[20] = {}, angle2[20] = {};///float angle = 0, angle2 = 0;
 int ID = 0;
 FILE * fout = NULL;
-FILE * fin = NULL;
 void keyboard(unsigned char key, int x, int y) {
     if(key=='0') ID = 0;
     if(key=='1') ID = 1;
@@ -36,14 +35,6 @@ void keyboard(unsigned char key, int x, int y) {
         }
         fprintf(fout, "\n");
         printf("¼g¤F¤@¦æ\n");
-    }
-    if(key=='r'){ ///readÅªÀÉ
-        if(fin == NULL) fin = fopen("motion.txt", "r");
-        for(int i=0; i<20; i++){
-            fscanf(fin, "%f", &angle[i] );
-            fscanf(fin, "%f", &angle2[i] );
-        }
-        glutPostRedisplay();
     }
 }
 

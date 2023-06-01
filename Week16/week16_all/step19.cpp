@@ -15,8 +15,6 @@ GLMmodel * foot1 = NULL, * foot2 = NULL;
 float teapotX = 0, teapotY = 0, oldX = 0, oldY = 0;
 float angle[20] = {}, angle2[20] = {};///float angle = 0, angle2 = 0;
 int ID = 0;
-FILE * fout = NULL;
-FILE * fin = NULL;
 void keyboard(unsigned char key, int x, int y) {
     if(key=='0') ID = 0;
     if(key=='1') ID = 1;
@@ -28,23 +26,6 @@ void keyboard(unsigned char key, int x, int y) {
     if(key=='7') ID = 7;
     if(key=='8') ID = 8;
     if(key=='9') ID = 9;
-    if(key=='s'){ ///save存檔
-        if(fout == NULL) fout = fopen("motion.txt", "w");
-        for(int i=0; i<20; i++){
-            fprintf(fout, "%.2f ", angle[i] );
-            fprintf(fout, "%.2f ", angle2[i] );
-        }
-        fprintf(fout, "\n");
-        printf("寫了一行\n");
-    }
-    if(key=='r'){ ///read讀檔
-        if(fin == NULL) fin = fopen("motion.txt", "r");
-        for(int i=0; i<20; i++){
-            fscanf(fin, "%f", &angle[i] );
-            fscanf(fin, "%f", &angle2[i] );
-        }
-        glutPostRedisplay();
-    }
 }
 
 int myTexture(char * filename)
