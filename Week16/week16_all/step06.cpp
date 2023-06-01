@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <GL/glut.h>
-#include "glm.h"
-GLMmodel * gundam = NULL;
 float teapotX = 0, teapotY = 0, angle = 0, oldX = 0, oldY = 0;
 void mouse(int button, int state, int x, int y) {
     oldX = x;
@@ -17,16 +15,16 @@ void motion(int x, int y) {
 }
 void display() {
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
     glPushMatrix();
-        glColor3f(1,0,0);
-        glScalef(0.04, 0.04, 0.04);
-        glmDraw(gundam, GLM_MATERIAL);
+        glColor3f(1,1,1);
+        glTranslatef(-0.42, +0.06, 0 );
+        glRotatef(angle, 0, 0, 1);
+        glTranslatef( 0.42, -0.06, 0 );//glTranslatef(teapotX, teapotY, 0);
+        glutSolidTeapot( 0.3 );
     glPopMatrix();
 
     glColor3f(0,1,0);
     glutSolidTeapot( 0.02 );
-
     glutSwapBuffers();
 }
 
@@ -39,8 +37,6 @@ int main(int argc, char** argv)
     glutDisplayFunc(display);
     glutMotionFunc(motion);
     glutMouseFunc(mouse);
-
-    gundam = glmReadOBJ("model/Gundam.obj");
 
     glutMainLoop();
 }
