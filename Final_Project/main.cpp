@@ -36,7 +36,7 @@ const GLfloat high_shininess[] = { 100.0f };
 
 void timer(int t) {
     printf("現在timer(%d)\n", t);
-    glutTimerFunc(20, timer, t+1); ///馬上設定下一個鬧鐘
+    glutTimerFunc(20, timer, t+2); ///馬上設定下一個鬧鐘
 
     float alpha = (t%50) / 50.0; ///0.0 ~ 1.0
 
@@ -109,7 +109,7 @@ void keyboard(unsigned char key, int x, int y) {
         }
         glutPostRedisplay();
     }
-    if(key=='p'){ ///play播放 也會動到檔案
+    if(key=='t'){ ///play播放 也會動到檔案
         glutTimerFunc(0, timer, 0);
         myMP3.Play();
     }
@@ -289,11 +289,11 @@ glEnable(GL_LIGHTING);
 
 int main(int argc, char** argv)
 {
-    myMP3.Load("bgmtest.mp3");
+    myMP3.Load("bgmver1.mp3");
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_DEPTH);
-    glutInitWindowSize(500,500);
-    glutCreateWindow("week16");
+    glutInitWindowSize(768,768);
+    glutCreateWindow("week17");
     myLight();
     glutDisplayFunc(display);
     glutMotionFunc(motion);
@@ -315,7 +315,7 @@ int main(int argc, char** argv)
     foot1 = glmReadOBJ("model/footL.obj");
     foot2 = glmReadOBJ("model/footR.obj");
 
-    text3 = myTexture("model/image/Worgin.png");
+    text3 = myTexture("model/image/055.png");
     text2 = myTexture("model/3148.png");
     text1 = myTexture("model/blue.jpg");
 

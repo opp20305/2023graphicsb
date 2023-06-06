@@ -164,7 +164,7 @@ int main(int argc, char** argv)
     foot1 = glmReadOBJ("model/footL.obj");
     foot2 = glmReadOBJ("model/footR.obj");
 
-    myTexture("model/3148.png");
+
     glEnable(GL_DEPTH_TEST);
 
     glutMainLoop();
