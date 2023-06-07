@@ -36,7 +36,7 @@ const GLfloat high_shininess[] = { 100.0f };
 
 void timer(int t) {
     printf("現在timer(%d)\n", t);
-    glutTimerFunc(20, timer, t+2); ///馬上設定下一個鬧鐘
+    glutTimerFunc(20, timer, t+1); ///馬上設定下一個鬧鐘
 
     float alpha = (t%50) / 50.0; ///0.0 ~ 1.0
 
@@ -197,7 +197,7 @@ glEnable(GL_LIGHTING);
                 glPushMatrix();
                 glBindTexture(GL_TEXTURE_2D, text5);
                 glTranslatef(+0.62, +1.10, 0 );
-                glRotatef(angle[2], 0, 1, 0);
+                glRotatef(angle[2], 0, 0, 1);
                 glRotatef(angle2[2], 1, 0, 0);
                 glTranslatef(-0.62, -1.10, 0 );
                 glmDraw(arm3, GLM_SMOOTH|GLM_TEXTURE);
@@ -225,14 +225,14 @@ glEnable(GL_LIGHTING);
                 glTranslatef(+0.24, -1.40, 0 );///glTranslatef(teapotX, teapotY, 0);
                 glmDraw(arm2, GLM_SMOOTH|GLM_TEXTURE);
 
-                glPushMatrix();///左手
+                glPushMatrix();///
                 glBindTexture(GL_TEXTURE_2D, text4);
                 glmDraw(arm22, GLM_SMOOTH|GLM_TEXTURE);
 
                 glPushMatrix();
                 glBindTexture(GL_TEXTURE_2D, text5);
                 glTranslatef(-0.56, +1.20, 0 );
-                glRotatef(angle[5], 0, 1, 0);
+                glRotatef(angle[5], 0, 0, 1);
                 glRotatef(angle2[5], 1, 0, 0);
                 glTranslatef(+0.56, -1.20, 0 );
                 glmDraw(arm4, GLM_SMOOTH|GLM_TEXTURE);
@@ -242,7 +242,7 @@ glEnable(GL_LIGHTING);
                     glTranslatef(-0.66, +0.88, 0 );
                     glRotatef(angle[6], 0, 1, 0);
                     glRotatef(angle2[6], 1, 0, 0);
-                    glTranslatef(+0.66, -0.88, 0 );///glTranslatef(teapotX, teapotY, 0);
+                    glTranslatef(+0.66, -0.88, 0 );
                     glmDraw(hand2, GLM_SMOOTH|GLM_TEXTURE);
                     glPopMatrix();
                 glPopMatrix();
