@@ -6,15 +6,15 @@
 #include "glm.h"
 #include "CMP3_MCI.h"
 CMP3_MCI myMP3;
-GLMmodel * head = NULL;
-GLMmodel * body = NULL; ///GLMmodel * gundam = NULL;
-GLMmodel * arm1 = NULL, * arm2 = NULL;
+GLMmodel * head = NULL,* headear = NULL,* headblack = NULL,* headred = NULL,* headmer = NULL,* eyeup = NULL,* eyewhite = NULL;
+GLMmodel * body = NULL,* bot = NULL,* midside = NULL,* bodymid = NULL; ///GLMmodel * gundam = NULL;
+GLMmodel * arm1 = NULL, * arm2 = NULL, * arm11 = NULL, * arm22 = NULL;
 GLMmodel * arm3 = NULL, * arm4 = NULL;
 GLMmodel * hand1 = NULL, * hand2 = NULL;
 GLMmodel * leg1 = NULL, * leg2 = NULL;
 GLMmodel * knee1 = NULL, * knee2 = NULL;
 GLMmodel * foot1 = NULL, * foot2 = NULL;
-GLuint text1,text2,text3;
+GLuint text1,text2,text3,text4,text5,text6,text7,text8,text9,text10;
 
 float teapotX = 0, teapotY = 0, oldX = 0, oldY = 0;
 float angle[20] = {}, angle2[20] = {};///float angle = 0, angle2 = 0;
@@ -167,21 +167,35 @@ glEnable(GL_LIGHTING);
     glPushMatrix();
         glScalef(1.6, 1.6, 1.6);
         glTranslatef(0, -0.5,-0.2);///往下一半
-        glBindTexture(GL_TEXTURE_2D , text2);
+        glBindTexture(GL_TEXTURE_2D , text6);
         glPushMatrix();
             glColor3f(1,1,1);
             glScalef(0.4, 0.4, 0.4);
             glRotatef(angle[0], 0, 1, 0); ///身體的轉動
             glmDraw(body, GLM_SMOOTH|GLM_TEXTURE);///glmDraw(gundam, GLM_MATERIAL|GLM_TEXTURE);
 
+
+
+            glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text4);
+                glmDraw(bodymid, GLM_SMOOTH|GLM_TEXTURE);
+            glPopMatrix();
+
+
             glPushMatrix();///左手
+                glBindTexture(GL_TEXTURE_2D, text5);
                 glTranslatef(+0.26, +1.36, 0 );
                 glRotatef(angle[1], 0, 1, 0);
                 glRotatef(angle2[1], 1, 0, 0);
                 glTranslatef(-0.26, -1.36, 0 );///glTranslatef(teapotX, teapotY, 0);
                 glmDraw(arm1, GLM_SMOOTH|GLM_TEXTURE);
 
+                glPushMatrix();///左手
+                glBindTexture(GL_TEXTURE_2D, text4);
+                glmDraw(arm11, GLM_SMOOTH|GLM_TEXTURE);
+
                 glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text5);
                 glTranslatef(+0.62, +1.10, 0 );
                 glRotatef(angle[2], 0, 1, 0);
                 glRotatef(angle2[2], 1, 0, 0);
@@ -189,11 +203,13 @@ glEnable(GL_LIGHTING);
                 glmDraw(arm3, GLM_SMOOTH|GLM_TEXTURE);
 
                 glPushMatrix();
+                    glBindTexture(GL_TEXTURE_2D, text4);
                     glTranslatef(+0.68, +0.82, 0 );
                     glRotatef(angle[3], 0, 1, 0);
                     glRotatef(angle2[3], 1, 0, 0);
                     glTranslatef( -0.68, -0.82, 0 );///glTranslatef(teapotX, teapotY, 0);
                     glmDraw(hand1, GLM_SMOOTH|GLM_TEXTURE);
+                glPopMatrix();
                 glPopMatrix();
                 glPopMatrix();
             glPopMatrix();
@@ -202,13 +218,19 @@ glEnable(GL_LIGHTING);
 
 
             glPushMatrix();///右手
+                glBindTexture(GL_TEXTURE_2D, text5);
                 glTranslatef(-0.24, +1.40, 0 );
                 glRotatef(angle[4], 0, 1, 0);
                 glRotatef(angle2[4], 1, 0, 0);
                 glTranslatef(+0.24, -1.40, 0 );///glTranslatef(teapotX, teapotY, 0);
                 glmDraw(arm2, GLM_SMOOTH|GLM_TEXTURE);
 
+                glPushMatrix();///左手
+                glBindTexture(GL_TEXTURE_2D, text4);
+                glmDraw(arm22, GLM_SMOOTH|GLM_TEXTURE);
+
                 glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text5);
                 glTranslatef(-0.56, +1.20, 0 );
                 glRotatef(angle[5], 0, 1, 0);
                 glRotatef(angle2[5], 1, 0, 0);
@@ -216,24 +238,87 @@ glEnable(GL_LIGHTING);
                 glmDraw(arm4, GLM_SMOOTH|GLM_TEXTURE);
 
                 glPushMatrix();
+                    glBindTexture(GL_TEXTURE_2D, text4);
                     glTranslatef(-0.66, +0.88, 0 );
                     glRotatef(angle[6], 0, 1, 0);
                     glRotatef(angle2[6], 1, 0, 0);
                     glTranslatef(+0.66, -0.88, 0 );///glTranslatef(teapotX, teapotY, 0);
                     glmDraw(hand2, GLM_SMOOTH|GLM_TEXTURE);
+                    glPopMatrix();
                 glPopMatrix();
                 glPopMatrix();
             glPopMatrix();
 
+
+
+
+
+
             glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text7);
                 glTranslatef(-0.00, +1.35, 0 );
                 glRotatef(angle[7], 0, 1, 0);
                 glRotatef(angle2[7], 1, 0, 0);
                 glTranslatef( 0.00, -1.35, 0 );///glTranslatef(teapotX, teapotY, 0);
-                glmDraw(head, GLM_SMOOTH|GLM_TEXTURE);
-            glPopMatrix();
+                glmDraw( head, GLM_SMOOTH|GLM_TEXTURE);
 
                 glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text4);
+                glmDraw( headmer, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPopMatrix();
+
+                glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text8);
+                glmDraw( headear, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPopMatrix();
+
+                glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text6);
+                glmDraw( headblack, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPopMatrix();
+
+                glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text5);
+                glmDraw( headred, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPopMatrix();
+
+                glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text9);
+                glmDraw( eyeup, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPopMatrix();
+
+                glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text10);
+                glmDraw( eyewhite, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPopMatrix();
+
+            glPopMatrix();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text5);
+                glmDraw(bot, GLM_SMOOTH|GLM_TEXTURE);
+
+                glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text4);
                     glTranslatef(+0.14, +0.80, 0 );
                     glRotatef(angle[8], 0, 1, 0);
                     glRotatef(angle2[8], 1, 0, 0);
@@ -241,6 +326,7 @@ glEnable(GL_LIGHTING);
                     glmDraw(leg1, GLM_SMOOTH|GLM_TEXTURE);
 
                     glPushMatrix();
+                    glBindTexture(GL_TEXTURE_2D, text5);
                         glTranslatef(+0.26, +0.56, 0 );
                         glRotatef(angle[9], 0, 1, 0);
                         glRotatef(angle2[9], 1, 0, 0);
@@ -248,6 +334,7 @@ glEnable(GL_LIGHTING);
                         glmDraw(knee1, GLM_SMOOTH|GLM_TEXTURE);
 
                         glPushMatrix();
+                        glBindTexture(GL_TEXTURE_2D, text5);
                             glTranslatef(+0.38, +0.22, 0 );
                             glRotatef(angle[10], 0, 1, 0);
                             glRotatef(angle2[10], 1, 0, 0);
@@ -259,6 +346,7 @@ glEnable(GL_LIGHTING);
 
 
                 glPushMatrix();
+                glBindTexture(GL_TEXTURE_2D, text4);
                     glTranslatef(-0.14, +0.82, 0 );
                     glRotatef(angle[11], 0, 1, 0);
                     glRotatef(angle2[11], 1, 0, 0);
@@ -266,6 +354,7 @@ glEnable(GL_LIGHTING);
                     glmDraw(leg2, GLM_SMOOTH|GLM_TEXTURE);
 
                     glPushMatrix();
+                    glBindTexture(GL_TEXTURE_2D, text5);
                         glTranslatef(-0.26, +0.56, 0 );
                         glRotatef(angle[12], 0, 1, 0);
                         glRotatef(angle2[12], 1, 0, 0);
@@ -273,6 +362,7 @@ glEnable(GL_LIGHTING);
                         glmDraw(knee2, GLM_SMOOTH|GLM_TEXTURE);
 
                         glPushMatrix();
+                        glBindTexture(GL_TEXTURE_2D, text5);
                             glTranslatef(-0.38, +0.24, 0 );
                             glRotatef(angle[13], 0, 1, 0);
                             glRotatef(angle2[13], 1, 0, 0);
@@ -281,6 +371,7 @@ glEnable(GL_LIGHTING);
                         glPopMatrix();
                     glPopMatrix();
                 glPopMatrix();
+            glPopMatrix();
             glPopMatrix();
 
     glPopMatrix();
@@ -300,10 +391,21 @@ int main(int argc, char** argv)
     glutMouseFunc(mouse);
     glutKeyboardFunc(keyboard);
 
+    headblack = glmReadOBJ("model/headblack.obj");
+    headmer = glmReadOBJ("model/headmer.obj");
+    headred = glmReadOBJ("model/headred.obj");
+    headear = glmReadOBJ("model/headear.obj");
+    eyeup = glmReadOBJ("model/eyeup.obj");
+    eyewhite = glmReadOBJ("model/eyewhite.obj");
     head = glmReadOBJ("model/head.obj");
-    body = glmReadOBJ("model/body.obj"); ///gundam = glmReadOBJ("model/Gundam.obj");
+    body = glmReadOBJ("model/body.obj");
+    bodymid = glmReadOBJ("model/bodymid.obj");
+    midside = glmReadOBJ("model/midside.obj");
+    bot = glmReadOBJ("model/bot.obj");
     arm1 = glmReadOBJ("model/uparmL.obj");
+    arm11 = glmReadOBJ("model/uparmLL.obj");
     arm2 = glmReadOBJ("model/uparmR.obj");
+    arm22 = glmReadOBJ("model/uparmRR.obj");
     arm3 = glmReadOBJ("model/lowarmL.obj");
     arm4 = glmReadOBJ("model/lowarmR.obj");
     hand1 = glmReadOBJ("model/handL.obj");
@@ -315,8 +417,15 @@ int main(int argc, char** argv)
     foot1 = glmReadOBJ("model/footL.obj");
     foot2 = glmReadOBJ("model/footR.obj");
 
+    text10 = myTexture("model/white.png");
+    text9 = myTexture("model/eyeup.png");
+    text8 = myTexture("model/ear.png");
+    text7 = myTexture("model/headback.png");
+    text6 = myTexture("model/black.png");
+    text5 = myTexture("model/lowarm.png");
+    text4 = myTexture("model/hand.png");
     text3 = myTexture("model/image/055.png");
-    text2 = myTexture("model/3148.png");
+    text2 = myTexture("model/Color.png");
     text1 = myTexture("model/blue.jpg");
 
     glEnable(GL_DEPTH_TEST);
